@@ -1,0 +1,88 @@
+img {
+    width: 600px;
+    height: auto;
+}
+
+.background{
+    background-color: black;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.middle {
+    display: block;
+    margin-left: 80px;
+    margin-right: auto;
+    font-family: screaming_neon;
+    letter-spacing: 2px;
+    color: #fff;
+    text-shadow:
+    0 0 4px white, 0 0 7px purple, 0 0 21px purple,
+    0 0 42px purple, 0 0 82px purple, 0 0 92px purple, 0 0 102px purple, 0 0 151px purple;
+}
+
+body {
+    background-image: url("./media/background.jpg");
+    background-size: 1650px;
+}
+
+input[type=text] {
+    color: black;
+    font-size: 18px;
+}
+
+.input_text {
+    color: black;
+    border: 2px solid rgb(216, 2, 134);
+    border-radius: 0px;
+    padding: 4px 0px 0px 4px;
+    width: 200px;
+    font-family: screaming_neon;
+}
+
+.button_slide {
+    color: rgb(216, 2, 134);
+    border: 2px solid rgb(216, 2, 134);
+    border-radius: 0px;
+    padding: 4px 4px 0px 4px;
+    font-family: screaming_neon;
+    letter-spacing: 2px;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: inset 0 0 0 0 #D80286;
+    -webkit-transition: ease-out 0.4s;
+    -moz-transition: ease-out 0.4s;
+    transition: ease-out 0.4s;
+}
+
+.slide_left:hover {
+    box-shadow: inset 0 0 0 50px #D80286;
+    color: black;
+}
+
+.slide_diagonal:hover {
+    box-shadow: inset 400px 50px 0 0 #D80286;
+}
+
+.light-blue {
+    background: linear-gradient(90deg, rgba(255,0,151,0.6) 0%, rgba(13,246,231,0.6) 45%, rgba(255,210,8,0.05) 86%);
+    color: white;
+}
+
+.yellow {
+    background: linear-gradient(90deg, rgba(255,210,8,0.05) 0%, rgba(13,246,231,0.6) 45%, rgba(255,0,151,0.6) 87%);
+    color: white;
+}
+
+@font-face {
+    font-family: 'screaming_neon';
+    src: url('./media/screaming_neon.ttf');
+}
+
+.neonText {
+    
+}
