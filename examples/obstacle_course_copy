@@ -1,0 +1,63 @@
+import picar_4wd as fc
+import time as time
+
+speed = 20
+reduced_speed = 10
+
+def main():
+    while True:
+        scan_list = fc.scan_step(35)
+        if not scan_list:
+            continue
+
+        tmp = scan_list[3:7]
+        tmp0 = tmp[0]
+        tmp1 = tmp[1]
+        tmp2 = tmp[-2]
+        tmp3 = tmp[-1]
+        print(tmp)
+        print(scan_list)
+        if scan_list[1] == 0 and scan_list[-1] == 2:
+                begin_time = time.time()
+                timer = 0.1 #seconds
+                print("Object Port Side!")
+                while True:
+                        current_time = time.time()
+                        elapsed_time = current_time - begin_time
+                        fc.turn_right(speed)
+                        if elapsed_time > timer:
+                                break
+        if scan_list[-1] == 0 and scan_list[1] == 2:
+                begin_time = time.time()
+                timer = 0.1 #seconds
+                print("Object Starboard Side!")
+                while True:
+                        current_time = time.time()
+                        elapsed_time = current_time - begin_time
+                        fc.turn_left(speed)
+                        if elapsed_time > timer:
+                                break  
+        if tmp != [2,2,2,2]:
+            if tmp0 == 2:
+                fc.turn_left(speed)
+            elif tmp3 == 2:
+                fc.turn_right(speed)
+            else:
+                begin_time = time.time()
+                timer = 1 #seconds
+                print("going backwards")
+                while True:
+                        current_time = time.time()
+                        elapsed_time = current_time - begin_time
+                        fc.backward(reduced_speed)
+                        if elapsed_time > timer:
+                                break
+                fc.turn_right(reduced_speed)
+        else:
+            fc.forward(speed)
+
+if __name__ == "__main__":
+    try: 
+        main()
+    finally: 
+        fc.stop()

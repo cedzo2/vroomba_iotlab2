@@ -1,0 +1,33 @@
+import picar_4wd as fc
+
+speed = 30
+
+def main():
+    while True:
+        scan_list = fc.scan_step(35)
+        if not scan_list:
+            continue
+
+        tmp = scan_list[3:7]
+        tmp0 = tmp[0]
+        tmp1 = tmp[1]
+        tmp2 = tmp[-2]
+        tmp3 = tmp[-1]
+        print(tmp)
+        print(tmp0)
+        print(tmp1)
+        print(tmp2)
+        print(tmp3)
+        if tmp != [2,2,2,2]:
+            if tmp1 == 2:
+                fc.turn_left(speed)
+            else:
+                fc.turn_right(speed)
+        else:
+            fc.forward(speed)
+
+if __name__ == "__main__":
+    try: 
+        main()
+    finally: 
+        fc.stop()
